@@ -1,20 +1,22 @@
 <div align="center">
 
-<img src="https://iili.io/Cxpjjqu.png" width="180" alt="Sniff0x Logo">
+<img src="https://iili.io/Cxpjjqu.png" width="220" alt="Sniff0x Logo">
 
 # Sniff0x 🐶
 
-### The #1 Scam Sniffer for Clanker Tokens
+### The #1 Scam Sniffer for Clanker Tokens on Base Chain
 
-**Real-time Token Security Scanner on Base Chain**
+**Real-time Token Security Scanner • Base Chain • Powered by GoPlus Labs**
 
 [![Follow @Sniff0x](https://img.shields.io/badge/Follow_@Sniff0x-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Sniff0x)
 [![Base Chain](https://img.shields.io/badge/Base_Chain-0052FF?style=for-the-badge&logo=coinbase&logoColor=white)](https://base.org)
-[![Powered by GoPlus](https://img.shields.io/badge/Powered_by-GoPlus_Labs-00D4AA?style=for-the-badge)](https://gopluslabs.io)
+[![GoPlus Labs](https://img.shields.io/badge/Powered_by-GoPlus_Labs-00D4AA?style=for-the-badge)](https://gopluslabs.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
 
 ---
 
-> 🔍 **Sniff0x sniffs out scams before they sniff out your wallet.**
+> 🐶 *Sniff0x sniffs out scams before they sniff out your wallet.*
 
 </div>
 
@@ -24,27 +26,47 @@
 
 | Feature | Description |
 |---|---|
-| ⚡ **Real-time Security Checks** | Powered by GoPlus Labs — honeypot detection, rug pull analysis & more |
-| 📊 **Live Market Data** | Instant price, volume, liquidity & holder stats via DexScreener |
-| 🖼️ **Auto-generated Share Cards** | Shareable security report cards for any token |
-| 🏆 **Leaderboard** | Track the safest & most dangerous tokens in real time |
-| 📱 **Mobile-first Design** | Built for on-the-go sniping — fully responsive UI |
-| 🎯 **Clanker Native** | Built specifically for and by the Clanker community |
+| ⚡ **Real-time Security Analysis** | GoPlus Labs integration — honeypot detection, rug pull risk, mint authority checks |
+| 📊 **Live Market Data** | Price, volume, liquidity & holder stats powered by DexScreener |
+| 🖼️ **Auto Shareable Scan Cards** | Beautiful auto-generated security report cards to share anywhere |
+| 🏆 **Leaderboard** | Community-driven leaderboard of safest & riskiest tokens |
+| 📱 **Mobile-first Design** | Fully responsive UI built for on-the-go traders |
+| 🎯 **Clanker Native** | Built specifically for and deeply integrated with the Clanker ecosystem |
 
 ---
 
-## 🛡️ How It Works
+## 🛡️ Security Checks
+
+Sniff0x runs **7 critical security checks** on every token:
 
 ```
-1. Paste any Clanker token contract address
-         ↓
-2. Sniff0x queries GoPlus Labs security APIs
-         ↓
-3. Live market data fetched from DexScreener
-         ↓
-4. Instant security report generated
-         ↓
-5. Share your findings with the community 🐶
+✅ Honeypot Detection       — Can you actually sell?
+✅ Mint Authority Check     — Can the team print unlimited tokens?
+✅ Blacklist Functions      — Can wallets be blocked from trading?
+✅ LP Lock Verification     — Is the liquidity pool actually locked?
+✅ Whale Concentration      — Are top holders dangerously dominant?
+✅ Contract Verification    — Is the source code publicly verified?
+✅ Trading Cooldowns        — Are there hidden sell restrictions?
+```
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Sniff0x/Sniff0x.git
+cd Sniff0x
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your API keys
+
+# Start development server
+npm run dev
 ```
 
 ---
@@ -57,7 +79,7 @@
 |---|---|---|---|
 | 🌊 Liquidity Pool | **95%** | 95,000,000,000 | 🔒 Locked Forever |
 | 🏦 Creator Vault | **5%** | 5,000,000,000 | 🔒 Locked 30 Days |
-| **Total Supply** | **100%** | **100,000,000,000** | ✅ Fixed |
+| **Total Supply** | **100%** | **100,000,000,000** | ✅ Fixed by Clanker |
 
 **💸 Static Fee: 3%**
 
@@ -65,15 +87,29 @@
 
 ---
 
-## 🔴 Risk Signals We Detect
+## 🏗️ Architecture
 
-- 🍯 **Honeypot** — Can you actually sell?
-- 🔑 **Mint Authority** — Can the team print more tokens?
-- 🚫 **Blacklist Functions** — Can wallets be blocked?
-- 💧 **Liquidity Lock Status** — Is the LP actually locked?
-- 👥 **Top Holder Concentration** — Whale risk analysis
-- 📝 **Contract Verification** — Is the source code public?
-- 🔄 **Trading Cooldowns** — Hidden sell restrictions?
+```
+sniff0x/
+├── src/
+│   ├── index.js          # Entry point
+│   ├── scanner.js        # Core security scanner
+│   ├── leaderboard.js    # Leaderboard engine
+│   ├── api/
+│   │   ├── goplus.js     # GoPlus Labs API integration
+│   │   └── dexscreener.js# DexScreener market data
+│   └── utils/
+│       ├── formatter.js  # Data formatters
+│       └── riskScore.js  # Risk scoring algorithm
+├── public/
+│   └── index.html        # Web interface
+├── docs/
+│   ├── API.md            # API reference
+│   └── ARCHITECTURE.md   # Architecture docs
+└── .github/
+    └── workflows/
+        └── ci.yml        # GitHub Actions CI
+```
 
 ---
 
@@ -81,24 +117,20 @@
 
 <div align="center">
 
-| | Technology | Role |
+| | Technology | Purpose |
 |---|---|---|
-| 🛡️ | **GoPlus Labs** | Security intelligence & risk detection |
-| 📈 | **DexScreener** | Real-time market data & analytics |
-| 🔵 | **Base Chain** | Fast, low-cost EVM infrastructure |
-| 🤖 | **Clanker** | Token launchpad & community |
+| 🛡️ | **GoPlus Labs** | Security intelligence & threat detection |
+| 📈 | **DexScreener** | Real-time DEX market data |
+| 🔵 | **Base Chain** | Fast, low-cost EVM execution |
+| 🤖 | **Clanker** | Token launchpad & community hub |
 
 </div>
 
 ---
 
-## 🌐 Links
+## 📄 License
 
-<div align="center">
-
-[![Twitter/X](https://img.shields.io/badge/Twitter/X-@Sniff0x-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Sniff0x)
-
-</div>
+MIT © 2025 Sniff0x
 
 ---
 
@@ -107,5 +139,7 @@
 **Made with ❤️ for the Clanker Ecosystem**
 
 *Sniff before you ape. 🐶*
+
+[![Follow @Sniff0x](https://img.shields.io/badge/Follow_@Sniff0x-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/Sniff0x)
 
 </div>

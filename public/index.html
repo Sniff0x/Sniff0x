@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sniff0x 🐶 — Scam Sniffer for Clanker Tokens</title>
+  <meta name="description" content="Real-time token security scanner for Clanker tokens on Base Chain. Powered by GoPlus Labs.">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f1a; color: #fff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    header { padding: 40px 20px; text-align: center; }
+    header img { width: 80px; margin-bottom: 16px; border-radius: 50%; }
+    h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; background: linear-gradient(135deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .subtitle { color: #aaa; margin-top: 8px; font-size: 1rem; }
+    .scanner { width: 100%; max-width: 640px; padding: 0 20px; margin-top: 32px; }
+    .input-group { display: flex; gap: 8px; }
+    input { flex: 1; padding: 14px 18px; background: #1a1a2e; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; font-size: 14px; font-family: monospace; outline: none; }
+    input:focus { border-color: #4facfe; }
+    button { padding: 14px 24px; background: linear-gradient(135deg, #4facfe, #00f2fe); border: none; border-radius: 12px; color: #0f0f1a; font-weight: 700; cursor: pointer; font-size: 14px; white-space: nowrap; }
+    .result { margin-top: 24px; padding: 24px; background: #1a1a2e; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); display: none; }
+    .powered { margin-top: auto; padding: 40px 20px; text-align: center; color: #555; font-size: 12px; }
+    .powered a { color: #4facfe; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://iili.io/Cxpjjqu.png" alt="Sniff0x">
+    <h1>Sniff0x 🐶</h1>
+    <p class="subtitle">The #1 Scam Sniffer for Clanker Tokens on Base Chain</p>
+  </header>
+
+  <main class="scanner">
+    <div class="input-group">
+      <input type="text" id="addressInput" placeholder="Paste token contract address (0x...)">
+      <button onclick="scan()">🔍 Sniff</button>
+    </div>
+    <div class="result" id="result">
+      <p>Scanning...</p>
+    </div>
+  </main>
+
+  <footer class="powered">
+    Powered by <a href="https://gopluslabs.io" target="_blank">GoPlus Labs</a> &amp;
+    <a href="https://dexscreener.com" target="_blank">DexScreener</a> •
+    Built for <a href="https://clanker.world" target="_blank">Clanker</a> •
+    <a href="https://x.com/Sniff0x" target="_blank">@Sniff0x</a>
+  </footer>
+
+  <script>
+    async function scan() {
+      const address = document.getElementById('addressInput').value.trim();
+      if (!address) return;
+      const resultEl = document.getElementById('result');
+      resultEl.style.display = 'block';
+      resultEl.innerHTML = '<p>🐶 Sniffing...</p>';
+      try {
+        const res = await fetch(`/api/scan/${address}`);
+        const data = await res.json();
+        resultEl.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+      } catch (e) {
+        resultEl.innerHTML = `<p style="color:#f44">Error: ${e.message}</p>`;
+      }
+    }
+    document.getElementById('addressInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') scan();
+    });
+  </script>
+</body>
+</html>
