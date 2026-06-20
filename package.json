@@ -1,14 +1,17 @@
 {
   "name": "sniff0x",
-  "version": "1.0.0",
-  "description": "The #1 Scam Sniffer for Clanker Tokens on Base Chain",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js",
-    "test": "jest --coverage",
-    "lint": "eslint src/ --ext .js",
-    "build": "npm run lint && npm test"
+  "version": "1.2.0",
+  "private": true,
+  "description": "The #1 Scam Sniffer for Clanker Tokens on Base Chain — powered by GoPlus Labs & DexScreener",
+  "author": "Sniff0x <https://x.com/Sniff0x>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sniff0x/Sniff0x.git"
+  },
+  "homepage": "https://sniff0x.vercel.app",
+  "bugs": {
+    "url": "https://github.com/Sniff0x/Sniff0x/issues"
   },
   "keywords": [
     "blockchain",
@@ -18,34 +21,58 @@
     "clanker",
     "defi",
     "web3",
+    "next.js",
+    "typescript",
     "goplus",
-    "dexscreener"
+    "dexscreener",
+    "honeypot-detector"
   ],
-  "author": "Sniff0x <https://x.com/Sniff0x>",
-  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "analyze": "ANALYZE=true next build",
+    "clean": "rm -rf .next out coverage"
+  },
   "dependencies": {
-    "axios": "^1.6.0",
-    "express": "^4.18.2",
-    "dotenv": "^16.3.1",
-    "cors": "^2.8.5",
-    "helmet": "^7.1.0",
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "axios": "^1.7.2",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.3.0",
+    "framer-motion": "^11.2.10",
+    "lucide-react": "^0.395.0",
+    "react-hot-toast": "^2.4.1",
     "node-cache": "^5.1.2",
-    "winston": "^3.11.0"
+    "winston": "^3.13.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.4.5",
+    "tailwindcss": "^3.4.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "prettier": "^3.3.2",
     "jest": "^29.7.0",
-    "eslint": "^8.55.0"
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.4.6"
   },
   "engines": {
-    "node": ">=18.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Sniff0x/Sniff0x.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Sniff0x/Sniff0x/issues"
-  },
-  "homepage": "https://github.com/Sniff0x/Sniff0x#readme"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
 }
